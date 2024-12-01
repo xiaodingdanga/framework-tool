@@ -1,0 +1,4 @@
+com\lx\framework\satoken\service\impl\StpInterfaceImpl.class
+com\lx\framework\satoken\controller\LoginController.class
+com\lx\framework\SaTokenDemoApplication.class
+com\lx\framework\satoken\controller\UserController.class

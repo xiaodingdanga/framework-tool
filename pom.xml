@@ -1,0 +1,233 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lx.framework</groupId>
+    <artifactId>framework-tool</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>framework-tool</name>
+
+    <modules>
+        <module>framework-tool-utils</module>
+        <module>framework-tool-startup</module>
+        <module>framework-tool-rpc</module>
+        <module>framework-tool-orm</module>
+        <module>framework-tool-redis</module>
+        <module>framework-tool-mq</module>
+        <module>framework-tool-security</module>
+        <module>framework-starter</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!--Spring Resources-->
+        <spring-boot.version>3.2.3</spring-boot.version>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-cloud-alibaba.version>2023.0.0.0-RC1</spring-cloud-alibaba.version>
+
+        <!--Cache-->
+        <integration-redis.version>6.0.5</integration-redis.version>
+
+        <!--Data Base-->
+        <mysql.version>8.0.33</mysql.version>
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <mybatis-plus-generator.version>3.5.3</mybatis-plus-generator.version>
+
+        <!--Others Tool-->
+        <hutool.version>5.8.25</hutool.version>
+        <fastjson2.version>2.0.29</fastjson2.version>
+        <fastjson.version>2.0.48</fastjson.version>
+        <lombok.version>1.18.30</lombok.version>
+        <slf4j-api.version>2.0.7</slf4j-api.version>
+        <commons-collections4.version>4.0</commons-collections4.version>
+        <jackson-dataformat-yaml.version>2.15.2</jackson-dataformat-yaml.version>
+        <commons-lang3.version>3.14.0</commons-lang3.version>
+        <pagehelper.version>2.0.0</pagehelper.version>
+        <dynamic-datasource.version>4.3.0</dynamic-datasource.version>
+        <spring-security-oauth2.version>2.5.2.RELEASE</spring-security-oauth2.version>
+<!--        <rocketmq-starter.version>2.3.0</rocketmq-starter.version>-->
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Multiple Extend -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Multiple Extend End-->
+
+            <!--Redis 分布式锁-->
+            <dependency>
+                <groupId>org.springframework.integration</groupId>
+                <artifactId>spring-integration-redis</artifactId>
+                <version>${integration-redis.version}</version>
+            </dependency>
+            <!--Redis End-->
+
+            <!--Mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--Mysql End-->
+
+            <!--Mybatis-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--扩展插件  待研究用法-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--开启注解-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--包含在mybatis-plus-spring-boot3-starter 可以去掉-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--代码生成器-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+            <!--Mybatis End-->
+
+            <!--rocketmq-->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.rocketmq</groupId>-->
+<!--                <artifactId>rocketmq-spring-boot-starter</artifactId>-->
+<!--                <version>${rocketmq-starter.version}</version>-->
+<!--            </dependency>-->
+            <!--rocketmq End-->
+
+            <!--Others Tool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>${jackson-dataformat-yaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <!--pagehelper分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <!--多数据源-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource.version}</version>
+
+            </dependency>
+            <!--End Others Tool-->
+            <!--security-->
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${spring-security-oauth2.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+<!--    <distributionManagement>-->
+<!--        &lt;!&ndash; 生产仓库 &ndash;&gt;-->
+<!--        <repository>-->
+<!--            <id>maven-iot</id>-->
+<!--            <url>https://nexus.ssc-hn.com/repository/maven-iot/</url>-->
+<!--        </repository>-->
+<!--        &lt;!&ndash; 快照仓库 &ndash;&gt;-->
+<!--        <snapshotRepository>-->
+<!--            <id>maven-color-snapshot</id>-->
+<!--            <url>https://nexus.ssc-hn.com/repository/maven-snapshots/</url>-->
+<!--        </snapshotRepository>-->
+<!--    </distributionManagement>-->
+
+
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>maven-public</id>-->
+<!--            <name>maven-public</name>-->
+<!--            <url>https://nexus.ssc-hn.com/repository/maven-public/</url>-->
+<!--        </repository>-->
+<!--        <repository>-->
+<!--            <id>spring-milestones</id>-->
+<!--            <name>Spring Milestones</name>-->
+<!--            <url>https://repo.spring.io/milestone</url>-->
+<!--            <snapshots>-->
+<!--                <enabled>false</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--    </repositories>-->
+</project>

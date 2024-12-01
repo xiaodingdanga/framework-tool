@@ -1,0 +1,3 @@
+com\lx\framework\server\SaOAuth2TemplateImpl.class
+com\lx\framework\controller\SaOAuth2ServerController.class
+com\lx\framework\SaTokenOauth2ServerApplication.class

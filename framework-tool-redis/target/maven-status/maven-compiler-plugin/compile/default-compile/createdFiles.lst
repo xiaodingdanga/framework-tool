@@ -1,0 +1,5 @@
+com\lx\framework\tool\redis\annotation\AutoIdempotent.class
+com\lx\framework\tool\redis\util\RedisConstant.class
+com\lx\framework\tool\redis\config\FastJsonRedisSerializer.class
+com\lx\framework\tool\redis\util\RedisUtil.class
+com\lx\framework\tool\redis\config\RedisConfig.class
