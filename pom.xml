@@ -16,6 +16,7 @@
         <module>framework-tool-mq</module>
         <module>framework-tool-security</module>
         <module>framework-starter</module>
+        <module>framework-tool-ai</module> <!-- 添加新子模块 -->
     </modules>
 
     <properties>

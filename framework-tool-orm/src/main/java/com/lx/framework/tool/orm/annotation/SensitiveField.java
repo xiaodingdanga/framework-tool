@@ -18,6 +18,12 @@ import java.lang.annotation.*;
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface SensitiveField {
+
+    /**
+     * 定义加解密类型
+     */
+//    SensitiveTypeEnum type() default SensitiveTypeEnum.DEFAULT;
+
     /**
      * 定义脱敏类型
      */

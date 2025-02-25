@@ -86,13 +86,17 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     public Result<String> handleException(Exception e){
-        System.out.println("languages:"+ RequestUtil.getLanguage());
-        String error= LocaleUtil.getI18n("global.error", null,RequestUtil.getLanguage());
-        System.out.println("error:"+error);
+//        System.out.println("languages:"+ RequestUtil.getLanguage());
+//        String error= LocaleUtil.getI18n("global.error", null,RequestUtil.getLanguage());
+//        System.out.println("error:"+error);
+//        // 未知异常
+//        log.error("全局异常！未知异常：{}", getExceptionType(e)+":"+e.getMessage());
+//        // 给前端页面友好的提示
+//        return Result.error(error);
         // 未知异常
         log.error("全局异常！未知异常：{}", getExceptionType(e)+":"+e.getMessage());
         // 给前端页面友好的提示
-        return Result.error(error);
+        return Result.error("亲 ^-^ 系统开小差啦 ~~~");
     }
 
     /**
