@@ -8,8 +8,6 @@ import com.lx.framework.tool.startup.handler.customException.AsyncException;
 import com.lx.framework.tool.startup.handler.customException.BusinessException;
 import com.lx.framework.tool.startup.handler.customException.ParamException;
 import com.lx.framework.tool.startup.handler.customException.RedisLockException;
-import com.lx.framework.tool.startup.utils.LocaleUtil;
-import com.lx.framework.tool.startup.utils.RequestUtil;
 import com.lx.framework.tool.utils.base.Result;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
@@ -84,20 +82,24 @@ public class GlobalExceptionHandler {
      * @author xin.liu
      * @date 2022/4/20 14:35
      */
-    @ExceptionHandler(Exception.class)
-    public Result<String> handleException(Exception e){
-//        System.out.println("languages:"+ RequestUtil.getLanguage());
-//        String error= LocaleUtil.getI18n("global.error", null,RequestUtil.getLanguage());
-//        System.out.println("error:"+error);
+//    @ExceptionHandler(Exception.class)
+//    public Result<String> handleException(Exception e){
+////        System.out.println("languages:"+ RequestUtil.getLanguage());
+////        String error= LocaleUtil.getI18n("global.error", null,RequestUtil.getLanguage());
+////        System.out.println("error:"+error);
+////        // 未知异常
+////        log.error("全局异常！未知异常：{}", getExceptionType(e)+":"+e.getMessage());
+////        // 给前端页面友好的提示
+////        return Result.error(error);
+//        if (e instanceof FeignException) {
+//            // 重新抛出特定异常，以便 Seata 能够识别
+//            throw new SeataRollBackException("Remote service call failed");
+//        }
 //        // 未知异常
 //        log.error("全局异常！未知异常：{}", getExceptionType(e)+":"+e.getMessage());
 //        // 给前端页面友好的提示
-//        return Result.error(error);
-        // 未知异常
-        log.error("全局异常！未知异常：{}", getExceptionType(e)+":"+e.getMessage());
-        // 给前端页面友好的提示
-        return Result.error("亲 ^-^ 系统开小差啦 ~~~");
-    }
+//        return Result.error("亲 ^-^ 系统开小差啦 ~~~");
+//    }
 
     /**
      * Description 基于 @Validated 对body参数校验异常

@@ -4,7 +4,6 @@ import cn.hutool.core.util.StrUtil;
 import com.lx.framework.tool.startup.service.TokenService;
 import com.lx.framework.tool.utils.base.Result;
 import jakarta.annotation.Resource;
-import org.springframework.integration.redis.util.RedisLockRegistry;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +26,8 @@ public class IdempotentController {
     @Resource
     private TokenService tokenService;
 
-    @Resource
-    private RedisLockRegistry redisLockRegistry;
+//    @Resource
+//    private RedisLockRegistry redisLockRegistry;
 
     private int num = 20;
 
@@ -50,30 +49,26 @@ public class IdempotentController {
         return Result.success();
     }
 
-
-
-
-
-    /**
-     * Description 测试redis分布式锁(有锁)
-     * @return void
-     * @author xin.liu
-     * @date 2022/4/20 16:33
-     */
-    @GetMapping("testLock")
-    public void testLock() throws InterruptedException {
-        // 获取锁
-        Lock lock = redisLockRegistry.obtain("lock");
-        // 尝试加锁
-        boolean isLock = lock.tryLock(1, TimeUnit.SECONDS);
-        String s = Thread.currentThread().getName();
-        if (num > 0 && isLock) {
-            System.out.println(s + ":排号成功，号码是：" + num);
-            num--;
-        } else {
-            System.out.println(s + ":排号失败,号码已经被抢光");
-        }
-        // 释放锁
-        lock.unlock();
-    }
+//    /**
+//     * Description 测试redis分布式锁(有锁)
+//     * @return void
+//     * @author xin.liu
+//     * @date 2022/4/20 16:33
+//     */
+//    @GetMapping("testLock")
+//    public void testLock() throws InterruptedException {
+//        // 获取锁
+//        Lock lock = redisLockRegistry.obtain("lock");
+//        // 尝试加锁
+//        boolean isLock = lock.tryLock(1, TimeUnit.SECONDS);
+//        String s = Thread.currentThread().getName();
+//        if (num > 0 && isLock) {
+//            System.out.println(s + ":排号成功，号码是：" + num);
+//            num--;
+//        } else {
+//            System.out.println(s + ":排号失败,号码已经被抢光");
+//        }
+//        // 释放锁
+//        lock.unlock();
+//    }
 }

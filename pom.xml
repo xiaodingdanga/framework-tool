@@ -31,7 +31,9 @@
         <spring-cloud-alibaba.version>2023.0.0.0-RC1</spring-cloud-alibaba.version>
 
         <!--Cache-->
-        <integration-redis.version>6.0.5</integration-redis.version>
+<!--        <integration-redis.version>6.0.5</integration-redis.version>-->
+        <spring-boot-starter-data-redis.version>3.4.3</spring-boot-starter-data-redis.version>
+
 
         <!--Data Base-->
         <mysql.version>8.0.33</mysql.version>
@@ -81,12 +83,18 @@
             </dependency>
             <!-- Multiple Extend End-->
 
-            <!--Redis 分布式锁-->
+<!--            &lt;!&ndash;Redis 分布式锁&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.integration</groupId>-->
+<!--                <artifactId>spring-integration-redis</artifactId>-->
+<!--                <version>${integration-redis.version}</version>-->
+<!--            </dependency>-->
             <dependency>
-                <groupId>org.springframework.integration</groupId>
-                <artifactId>spring-integration-redis</artifactId>
-                <version>${integration-redis.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot-starter-data-redis.version}</version>
             </dependency>
+
             <!--Redis End-->
 
             <!--Mysql-->
