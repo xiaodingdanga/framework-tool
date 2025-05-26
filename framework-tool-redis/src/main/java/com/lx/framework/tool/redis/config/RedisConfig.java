@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 
@@ -45,34 +47,34 @@ public class RedisConfig {
 
 
 
-//    /**
-//     * @description StringRedisTemplate redis工具类配置
-//     * @param redisConnectionFactory
-//     * @return: org.springframework.data.redis.core.StringRedisTemplate
-//     * @author xin.liu
-//     * @date 2022/12/1 10:34
-//    */
-//    @Bean
-//    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
-//        log.debug("stringRedisTemplate实例化");
-//        StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
-//        stringRedisTemplate.setConnectionFactory(redisConnectionFactory);
-//        FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(String.class);
-//        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
-//        // Json序列化配置
-//        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
-//        // key的序列化采用StringRedisSerializer
-//        stringRedisTemplate.setKeySerializer(stringRedisSerializer);
-//        // value值的序列化采用fastJsonRedisSerializer
-//        stringRedisTemplate.setValueSerializer(fastJsonRedisSerializer);
-//        // hash的key也采用String的序列化方式
-//        stringRedisTemplate.setHashKeySerializer(stringRedisSerializer);
-//        // hash的value序列化方式采用jackson
-//        stringRedisTemplate.setHashValueSerializer(fastJsonRedisSerializer);
-//        stringRedisTemplate.afterPropertiesSet();
-//        return stringRedisTemplate;
-//    }
-//
+    /**
+     * @description StringRedisTemplate redis工具类配置
+     * @param redisConnectionFactory
+     * @return: org.springframework.data.redis.core.StringRedisTemplate
+     * @author xin.liu
+     * @date 2022/12/1 10:34
+    */
+    @Bean
+    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        log.debug("stringRedisTemplate实例化");
+        StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
+        stringRedisTemplate.setConnectionFactory(redisConnectionFactory);
+        FastJsonRedisSerializer fastJsonRedisSerializer = new FastJsonRedisSerializer(String.class);
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+        // Json序列化配置
+        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+        // key的序列化采用StringRedisSerializer
+        stringRedisTemplate.setKeySerializer(stringRedisSerializer);
+        // value值的序列化采用fastJsonRedisSerializer
+        stringRedisTemplate.setValueSerializer(fastJsonRedisSerializer);
+        // hash的key也采用String的序列化方式
+        stringRedisTemplate.setHashKeySerializer(stringRedisSerializer);
+        // hash的value序列化方式采用jackson
+        stringRedisTemplate.setHashValueSerializer(fastJsonRedisSerializer);
+        stringRedisTemplate.afterPropertiesSet();
+        return stringRedisTemplate;
+    }
+
 //    /**
 //     * @description ReactiveRedisTemplate redis工具类配置  面对大数据量操作使用
 //     * @param connectionFactory

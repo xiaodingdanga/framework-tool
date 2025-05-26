@@ -79,15 +79,15 @@
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
-        <!-- nacos 注册中心 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <!-- nacos 配置中心 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
+<!--        &lt;!&ndash; nacos 注册中心 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; nacos 配置中心 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

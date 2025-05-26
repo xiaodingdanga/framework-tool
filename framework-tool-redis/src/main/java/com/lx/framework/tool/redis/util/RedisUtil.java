@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.connection.stream.ReadOffset;
 import org.springframework.data.redis.connection.stream.RecordId;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -35,7 +36,7 @@ public class RedisUtil {
 
 
     @Autowired
-    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
+    public void setRedisTemplate(@Qualifier("redisTemplate")  RedisTemplate<String, Object> redisTemplate) {
         log.debug("redisTemple加载");
         RedisUtil.redisTemplate = redisTemplate;
     }
